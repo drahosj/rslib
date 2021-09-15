@@ -1,0 +1,16 @@
+%a{href: '/'} Back
+%ul
+  - @sheets.each do |sheet|
+    - page = sheet['page']
+    - title = sheet['title']
+    - index = sheet['index']
+    - link = "/sheet/#{index}/#{page}?title=#{title}"
+    %li 
+      %a{href: link}
+        ="#{sheet['title']}"
+      %sup #{sheet['index'] + 1}
+%ul
+  - @filenames.each_with_index do |file, i|
+    %li{style: "list-style-type: none"}
+      %sup #{i+1}
+      = file

@@ -1,0 +1,10 @@
+%h1 Record Sheet Index
+%a{href: '/all'} All PDFs
+%hr
+%form{action: '/all', method: 'GET'}
+  %input{type: 'text', name: 'search'}
+  %input{type: 'submit', value: 'Search'}
+%ul
+  - @filenames.each_with_index do |n, i|
+    %li
+      %a{href: "/file/#{i}"}= n
